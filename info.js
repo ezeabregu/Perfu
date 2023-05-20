@@ -1,4 +1,4 @@
-const curiosidades=[
+const curiosidad=[
     {
         id:1,
         texto:"¿Sabes que la palabra perfume procede del latín per “por” y fumare “a través del humo”? Hacía referencia a la sustancia aromática que desprendía un humo fragante al ser quemada.",

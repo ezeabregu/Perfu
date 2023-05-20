@@ -81,7 +81,7 @@ header{
 .text__hero h1{
     color: var(--colorBlanco);
     font-size: 8rem;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
 }
 
 .text__hero h2{
