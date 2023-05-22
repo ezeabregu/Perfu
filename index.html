@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="./images/ico1.png" type="image/x-icon">
-    <title>Perfu - Tu perfume te espera</title>
+    <title>PERFU - Tu perfume te espera</title>
 </head>
 <body>
     <header>
@@ -47,14 +47,22 @@
         </div>
     </section>
     <section  class="section__marcas">
-        <img src="./images/ch.jpg" alt="Carolina Herrera">
-        <img src="./images/d.jpg" alt="Dior">
-        <img src="./images/g.jpg" alt="Givenchy">
-        <img src="./images/m.jpg" alt="Mugler">
-        <img src="./images/pr.jpg" alt="Paco Rabanne">
+        <img src="./images/ch.jpg" alt="Carolina Herrera" data-perfume="carolinaHerrera" class="marca__categoria">
+        <img src="./images/d.jpg" alt="Dior" data-perfume="dior" class="marca__categoria">
+        <img src="./images/g.jpg" alt="Givenchy" data-perfume="givenchy" class="marca__categoria">
+        <img src="./images/m.jpg" alt="Mugler" data-perfume="mugler" class="marca__categoria">
+        <img src="./images/pr.jpg" alt="Paco Rabanne" data-perfume="pacoRabanne" class="marca__categoria">
     </section>
     <section class="section__perfumes">
-        <p>Perfumes que pertenecen a la marcar</p>
+        <div class="perfumes">
+            <div class="card">
+                <img class="imagen__perfume" src="./images/fame-paco-rabanne.png" alt="FAME">
+                <span class="marca__perfume"><strong>Paco Rabanne</strong></span>
+                <span class="flanker__perfume">FAME EDP REFILLABLE</span>
+                <span class="precio__perfume">$59.600</span>
+                <button class="boton__perfume">AGREGAR AL CARRITO</button>
+            </div>
+        </div>
     </section>
     <footer>
         <ul>

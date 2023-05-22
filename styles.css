@@ -139,7 +139,7 @@ header{
 .section__marcas{
     padding: 50px 50px;
     width: 100%;
-    height: 400px;
+    height: auto;
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -158,6 +158,77 @@ header{
 
 .section__marcas img:hover{
     transform: scale(1.2);
+}
+
+.section__perfumes{
+    padding: 50px 50px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.perfumes{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card{
+    width: 300px;
+    height: 450px;
+    border: 1px solid var(--colorVioleta);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 5px 5px 15px;
+}
+
+.card:hover{
+    box-shadow: 5px 5px 5px;
+}
+
+.imagen__perfume{
+    width: 100%;
+    height: 280px;
+}
+
+.marca__perfume{
+    font-size: 0.8rem;
+}
+
+.flanker__perfume{
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.precio__perfume{
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.boton__perfume{
+    border: 1px solid var(--colorVioleta);
+    border-radius: 20px;
+    background-color: var(--colorBlanco);
+    color: var(--colorVioleta);
+    padding: 10px 10px;
+}
+
+.boton__perfume:hover{
+    border: 1px solid var(--colorVioleta);
+    border-radius: 20px;
+    background-color: var(--colorVioleta);
+    color: var(--colorBlanco);
 }
 
 footer{
