@@ -47,9 +47,9 @@ const mostrarCuriosidades = () => {
     }, 15000);
 }
 
-const mostrarCategoria = () => {
-    if(!)
-};
+// const mostrarCategoria = () => {
+//     if(!)
+// };
 
 const init = () => {
     document.addEventListener('DOMContentLoaded', mostrarCuriosidades);
