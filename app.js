@@ -33,6 +33,7 @@ de traer los datos  desde un archivo de JS, pueden hacerlo.
 const curiosidades = document.querySelector(".curiosidades");
 const seccionMarcas = document.querySelector(".section__marcas");
 const categoria = document.querySelectorAll(".marca__categoria");
+const perfumes = document.querySelector(".perfumes");
 
 const mostrarCuriosidades = () => {
     let i=0;
@@ -47,9 +48,50 @@ const mostrarCuriosidades = () => {
     }, 15000);
 }
 
-// const mostrarCategoria = () => {
-//     if(!)
-// };
+const mostrarCategoria = (categoria) => {
+  const {id,flanker,imagen,precio,marca} = categoria;
+  return `
+    <div class="card">
+      <img class="imagen__perfume" src="${imagen}" alt="${flanker}">
+      <span class="marca__perfume"><strong>${marca}</strong></span>
+      <span class="flanker__perfume">${flanker}</span>
+      <span class="precio__perfume">$${precio}</span>
+      <button class="boton__perfume">AGREGAR AL CARRITO</button>
+    </div>
+  `;
+};
+
+const mostrarCategoriaSeleccionada = (categoria) => {
+  if (categoria === 'carolinaHerrera') {
+    perfumes.innerHTML = chArray.map(mostrarCategoria).join("");
+  } else if(categoria === 'dior'){
+    perfumes.innerHTML = diorArray.map(mostrarCategoria).join("");
+  }
+  else if(categoria === 'givenchy'){
+    perfumes.innerHTML = givenchyArray.map(mostrarCategoria).join("");
+  }
+  else if(categoria === 'mugler'){
+    perfumes.innerHTML = muglerArray.map(mostrarCategoria).join("");
+  }
+  else if(categoria === 'pacoRabanne'){
+    perfumes.innerHTML = pacoArray.map(mostrarCategoria).join("");
+  }
+};
+
+const mostrarResultadoCategoria = (e) => {
+ const categoriaSeleccionada = e.dataset.perfume;
+};
+
+const mostrarCategoria = (e) => {
+     if(!e.target.classList.contains('marca__categoria'))return;
+     mostrarResultadoCategoria(e);
+     if (!e.target.dataset.perfume) {
+        section__perfumes.innerHTML="";
+     } 
+     else {
+      mostrarCategoriaSeleccionada(e.target.dataset.perfume);
+     }
+};
 
 const init = () => {
     document.addEventListener('DOMContentLoaded', mostrarCuriosidades);
