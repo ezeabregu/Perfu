@@ -50,15 +50,13 @@ const mostrarCuriosidades = () => {
 
 const mostrarCategoria = (categoria) => {
   const {id,flanker,imagen,precio,marca} = categoria;
-  return `
-    <div class="card">
-      <img class="imagen__perfume" src="${imagen}" alt="${flanker}">
-      <span class="marca__perfume"><strong>${marca}</strong></span>
-      <span class="flanker__perfume">${flanker}</span>
-      <span class="precio__perfume">$${precio}</span>
-      <button class="boton__perfume">AGREGAR AL CARRITO</button>
-    </div>
-  `;
+  return `<div class="card">
+            <img class="imagen__perfume" src="${imagen}" alt="${flanker}">
+            <span class="marca__perfume"><strong>${marca}</strong></span>
+            <span class="flanker__perfume">${flanker}</span>
+            <span class="precio__perfume">$${precio}</span>
+            <button class="boton__perfume">AGREGAR AL CARRITO</button>
+          </div>`;
 };
 
 const mostrarCategoriaSeleccionada = (categoria) => {
@@ -79,10 +77,10 @@ const mostrarCategoriaSeleccionada = (categoria) => {
 };
 
 const mostrarResultadoCategoria = (e) => {
- const categoriaSeleccionada = e.dataset.perfume;
+ const categoriaSeleccionada = e.target.dataset.perfume;
 };
 
-const mostrarCategoria = (e) => {
+const mostrarCategorias = (e) => {
      if(!e.target.classList.contains('marca__categoria'))return;
      mostrarResultadoCategoria(e);
      if (!e.target.dataset.perfume) {
@@ -95,7 +93,7 @@ const mostrarCategoria = (e) => {
 
 const init = () => {
     document.addEventListener('DOMContentLoaded', mostrarCuriosidades);
-    seccionMarcas.addEventListener('click', mostrarCategoria);
+    seccionMarcas.addEventListener('click', mostrarCategorias);
 };
 
 init();
