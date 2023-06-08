@@ -47,6 +47,10 @@ const curiosidad=[
         id:12,
         texto:"La fragancia que contiene entre un 20% y 50% de perfume sería calificada como perfume. Es la opción más duradera e intensa, y la más cara.",
     },
+    {
+        id:13,
+        texto:"No deberia verse",
+    }
 ];
 
 const pacoArray=[
