@@ -9,7 +9,18 @@
 :root{
     --colorBlanco: #ffffff;
     --colorVioleta: #7552cc;
+    --colorNegro: #131415;
+    --colorCeleste: #1877f2;
+    --colorIg: #c13584;
+    --colorAmarillo: #fbbc05;
+    --colorVerde: #34a853;
+    --colorRojo: #e80029;
     --font-family: 'Poppins', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: var(--colorNegro);
 }
 
 body{
@@ -256,3 +267,166 @@ footer li{
 footer li:hover{
     transform: scale(1.1);
 }
+
+/***********SINGIN***********************/
+.section__singup{
+    background-color: var(--colorVioleta);
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor__singup{
+    width: 20%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.contenedor__singup h2{
+    color: var(--colorBlanco);
+}
+
+.hr__my{
+    width: 100%;
+    height: 3.5px;
+    background-color: var(--colorBlanco);
+}
+
+.boton__google{
+    width: 100%;
+    height: 50px;
+    background-color: var(--colorAmarillo);
+    border-radius: 8px;
+    border: var(--colorAmarillo);
+    cursor: pointer;
+    color: var(--colorBlanco);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    padding: 12px 0px;
+    text-align: center;
+}
+
+.boton__google:hover{
+    background-color: #fdcc30;
+}
+
+.boton__instagram{
+    width: 100%;
+    height: 50px;
+    background-color: var(--colorIg);
+    border-radius: 8px;
+    border: var(--colorIg);
+    cursor: pointer;
+    color: var(--colorBlanco);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    padding: 12px 0px;
+    text-align: center;
+}
+
+.boton__instagram:hover{
+    background-color: #c54390;
+}
+
+.boton__facebook{
+    width: 100%;
+    height: 50px;
+    background-color: var(--colorCeleste);
+    border-radius: 8px;
+    border: var(--colorCeleste);
+    cursor: pointer;
+    color: var(--colorBlanco);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    padding: 12px 0px;
+    text-align: center;
+}
+
+.boton__facebook:hover{
+    background-color: #2080f8;
+}
+
+.boton__email{
+    width: 100%;
+    height: 50px;
+    background-color: var(--colorNegro);
+    border-radius: 8px;
+    border: var(--colorNegro);
+    cursor: pointer;
+    color: var(--colorBlanco);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    padding: 12px 0px;
+    text-align: center;
+}
+
+.boton__email:hover{
+    background-color: #151820;
+}
+/***********FIN*LOGIN*******************/
+/**************SINGUP*******************/
+.input__singup{
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: var(--colorVioleta);
+    border-color: var(--colorBlanco);
+    color: var(--colorBlanco);
+    font-family: var(--font-family);
+    font-weight: 600;
+}
+
+.contenedor__input{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.label__singup{
+    font-family: var(--font-family);
+    font-size: 0.8rem;
+    color: var(--colorBlanco);
+}
+
+.boton__registrarse{
+    width: 100%;
+    height: 50px;
+    background-color: var(--colorVerde);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--colorBlanco);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    padding: 12px 0px;
+    text-align: center;
+}
+
+.boton__registrarse:hover{
+    background-color: #40b565;
+}
+
+.boton__cancelar{
+    width: 100%;
+    height: 50px;
+    background-color: var(--colorRojo);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--colorBlanco);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    padding: 12px 0px;
+    text-align: center;
+}
+
+.boton__cancelar:hover{
+    background-color: #f11035;
+}
+/***********FIN*SINGUP******************/
