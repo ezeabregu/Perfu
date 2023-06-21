@@ -34,6 +34,7 @@ const curiosidades = document.querySelector(".curiosidades");
 const seccionMarcas = document.querySelector(".section__marcas");
 const categoria = document.querySelectorAll(".marca__categoria");
 const perfumes = document.querySelector(".perfumes");
+const loading = document.querySelector(".container__loading");
 
 const mostrarCuriosidades = () => {
     let i=0;
@@ -59,9 +60,15 @@ const mostrarCategoria = (categoria) => {
           </div>`;
 };
 
+const categoriaFraccionada = (Array) => {
+  const arrayFraccionado = [...Array];
+  console.log(arrayFraccionado);
+}
+
 const mostrarCategoriaSeleccionada = (categoria) => {
   if (categoria === 'carolinaHerrera') {
     perfumes.innerHTML = chArray.map(mostrarCategoria).join("");
+    categoriaFraccionada(chArray);
   } else if(categoria === 'dior'){
     perfumes.innerHTML = diorArray.map(mostrarCategoria).join("");
   }
@@ -89,6 +96,14 @@ const mostrarCategorias = (e) => {
      else {
       mostrarCategoriaSeleccionada(e.target.dataset.perfume);
      }
+};
+
+const loadingPerfumes = (categoria) => {
+  loading.classList.add('show');
+  setTimeout(() => {
+    loading.classList.remove('show');
+    mostrarCategoria(categoria);
+  }, 1000);
 };
 
 const init = () => {
