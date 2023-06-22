@@ -35,22 +35,24 @@ const seccionMarcas = document.querySelector(".section__marcas");
 const categoria = document.querySelectorAll(".marca__categoria");
 const perfumes = document.querySelector(".perfumes");
 const loading = document.querySelector(".container__loading");
+const carrito = document.getElementById("carrito");
+const iconoCarrito = document.querySelector(".fa-cart-shopping");
 
 const mostrarCuriosidades = () => {
-    let i=0;
-    curiosidades.innerHTML = curiosidad[0].texto;
-    setInterval(() => {
-      if (i >= 11) {
-        i=0;
-      } else {
-        curiosidades.innerHTML = curiosidad[i].texto;
-        i++;
-      }
-    }, 15000);
+  let i = 0;
+  curiosidades.innerHTML = curiosidad[0].texto;
+  setInterval(() => {
+    if (i >= 11) {
+      i = 0;
+    } else {
+      curiosidades.innerHTML = curiosidad[i].texto;
+      i++;
+    }
+  }, 15000);
 }
 
 const mostrarCategoria = (categoria) => {
-  const {id,flanker,imagen,precio,marca} = categoria;
+  const { id, flanker, imagen, precio, marca } = categoria;
   return `<div class="card">
             <img class="imagen__perfume" src="${imagen}" alt="${flanker}">
             <span class="marca__perfume"><strong>${marca}</strong></span>
@@ -69,33 +71,33 @@ const mostrarCategoriaSeleccionada = (categoria) => {
   if (categoria === 'carolinaHerrera') {
     perfumes.innerHTML = chArray.map(mostrarCategoria).join("");
     categoriaFraccionada(chArray);
-  } else if(categoria === 'dior'){
+  } else if (categoria === 'dior') {
     perfumes.innerHTML = diorArray.map(mostrarCategoria).join("");
   }
-  else if(categoria === 'givenchy'){
+  else if (categoria === 'givenchy') {
     perfumes.innerHTML = givenchyArray.map(mostrarCategoria).join("");
   }
-  else if(categoria === 'mugler'){
+  else if (categoria === 'mugler') {
     perfumes.innerHTML = muglerArray.map(mostrarCategoria).join("");
   }
-  else if(categoria === 'pacoRabanne'){
+  else if (categoria === 'pacoRabanne') {
     perfumes.innerHTML = pacoArray.map(mostrarCategoria).join("");
   }
 };
 
 const mostrarResultadoCategoria = (e) => {
- const categoriaSeleccionada = e.target.dataset.perfume;
+  const categoriaSeleccionada = e.target.dataset.perfume;
 };
 
 const mostrarCategorias = (e) => {
-     if(!e.target.classList.contains('marca__categoria'))return;
-     mostrarResultadoCategoria(e);
-     if (!e.target.dataset.perfume) {
-        section__perfumes.innerHTML="";
-     } 
-     else {
-      mostrarCategoriaSeleccionada(e.target.dataset.perfume);
-     }
+  if (!e.target.classList.contains('marca__categoria')) return;
+  mostrarResultadoCategoria(e);
+  if (!e.target.dataset.perfume) {
+    section__perfumes.innerHTML = "";
+  }
+  else {
+    mostrarCategoriaSeleccionada(e.target.dataset.perfume);
+  }
 };
 
 const loadingPerfumes = (categoria) => {
@@ -106,9 +108,18 @@ const loadingPerfumes = (categoria) => {
   }, 1000);
 };
 
+const mostrarCarrito = (e) => {
+  if (carrito.classList.contains('activar__carrito')) {
+    carrito.classList.remove('activar__carrito');
+  } else {
+    carrito.classList.add('activar__carrito');
+  }
+};
+
 const init = () => {
-    document.addEventListener('DOMContentLoaded', mostrarCuriosidades);
-    seccionMarcas.addEventListener('click', mostrarCategorias);
+  document.addEventListener('DOMContentLoaded', mostrarCuriosidades);
+  seccionMarcas.addEventListener('click', mostrarCategorias);
+  iconoCarrito.addEventListener('click', mostrarCarrito);
 };
 
 init();

@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lato:ital,wght@0,400;1,300&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-:root{
+:root {
     --colorBlanco: #ffffff;
     --colorVioleta: #7552cc;
     --colorNegro: #131415;
@@ -22,21 +22,21 @@
     --font-text: 'Lato', sans-serif;
 }
 
-a{
+a {
     text-decoration: none;
     color: var(--colorBlanco);
 }
 
-body{
+body {
     text-decoration: none;
     font-family: var(--font-family);
 }
 
-.show{
+.show {
     visibility: visible;
 }
 
-header{
+header {
     padding: 0px 30px;
     display: flex;
     flex-direction: row;
@@ -52,16 +52,16 @@ header{
     color: var(--colorBlanco);
 }
 
-.contenedor__imagen{
+.contenedor__imagen {
     width: 60px;
     height: 60px;
 }
 
-.contenedor__imagen img{
+.contenedor__imagen img {
     width: 100%;
 }
 
-.contenedor__nav{
+.contenedor__nav {
     width: 300px;
     height: 50%;
     display: flex;
@@ -69,7 +69,7 @@ header{
     justify-content: center;
 }
 
-.contenedor__nav ul{
+.contenedor__nav ul {
     height: 100%;
     width: 100%;
     list-style: none;
@@ -79,27 +79,125 @@ header{
     flex-direction: row;
 }
 
-.contenedor__nav li{
+.contenedor__nav li {
     transition: all 0.5s;
 }
 
-.contenedor__nav li:hover{
+.contenedor__nav li:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.contenedor__carrito{
+.contenedor__carrito {
     top: 80px;
-    right: 0px;
+    right: 0;
     width: 300px;
     height: calc(100vh - 80px);
     background-color: var(--colorBlanco);
-    z-index: 100;
+    z-index: 2;
     position: absolute;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
+    padding: 10px 10px;
+    transform: translate(200%);
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
 }
 
-.section__hero{
+.contenedor__carrito::-webkit-scrollbar {
+    display: none;
+}
+
+.activar__carrito {
+    transform: translate(0%);
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+}
+
+.titulo__carrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.titulo__carrito label {
+    color: var(--colorVioleta);
+    font-family: var(--font-text);
+    font-weight: 700;
+    text-align: center;
+}
+
+.lista__carrito {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+    color: var(--colorVioleta);
+}
+
+.resto__carrito {
+    bottom: 0;
+    position: fixed;
+    width: 90%;
+}
+
+.total__carrito {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    color: var(--colorNegro);
+    font-weight: 900;
+    padding: 0px 20px;
+}
+
+.botones__carrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 10px 0px;
+}
+
+.producto__carrito {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--colorVioleta);
+    border-radius: 5px;
+}
+
+.producto__carrito img {
+    width: 60px;
+    height: 60px;
+}
+
+.info__carrito {
+    display: flex;
+    flex-direction: column;
+}
+
+.botonesDelCarrito {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.botones__producto__carrito {
+    border: 1px solid var(--colorNegro);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.myhr {
+    color: var(--colorVioleta);
+}
+
+.section__hero {
     margin-top: 80px;
     background-color: var(--colorVioleta);
     width: 100%;
@@ -109,26 +207,26 @@ header{
     flex-direction: row;
 }
 
-.text__hero{
+.text__hero {
     padding: 50px 50px;
     width: 50%;
     height: 100%;
     text-align: center;
 }
 
-.text__hero h1{
+.text__hero h1 {
     color: var(--colorBlanco);
     font-size: 8rem;
     letter-spacing: 0.1rem;
 }
 
-.text__hero h2{
+.text__hero h2 {
     font-family: var(--font-family-marca);
     color: var(--colorBlanco);
     font-size: 2.8rem;
 }
 
-.fondo__hero{
+.fondo__hero {
     padding: 50px 50px;
     width: 50%;
     height: 100%;
@@ -137,7 +235,7 @@ header{
     background-repeat: no-repeat;
 }
 
-.section__info{
+.section__info {
     padding: 50px 50px;
     width: 100%;
     height: 400px;
@@ -147,7 +245,7 @@ header{
     gap: 30px;
 }
 
-.info__perfume{
+.info__perfume {
     height: 100%;
     width: 50%;
     font-size: 1.5rem;
@@ -160,7 +258,7 @@ header{
     align-items: center;
 }
 
-.info__curiosidades{
+.info__curiosidades {
     height: 100%;
     width: 50%;
     display: flex;
@@ -168,17 +266,17 @@ header{
     align-items: center;
 }
 
-.info__tarjeta{
+.info__tarjeta {
     padding: 10px 10px;
     border: 1px solid var(--colorVioleta);
     border-radius: 20px;
 }
 
-.info__tarjeta p{
+.info__tarjeta p {
     text-align: center;
 }
 
-.section__marcas{
+.section__marcas {
     padding: 50px 50px;
     width: 100%;
     height: auto;
@@ -188,22 +286,22 @@ header{
     gap: 80px;
 }
 
-.section__marcas ul{
+.section__marcas ul {
     list-style: none;
 }
 
-.section__marcas img{
+.section__marcas img {
     width: 120px;
     height: 120px;
     transition: all 2s;
 }
 
-.section__marcas img:hover{
+.section__marcas img:hover {
     transform: scale(1.2);
     cursor: pointer;
 }
 
-.section__perfumes{
+.section__perfumes {
     padding: 50px 50px;
     width: 100%;
     height: auto;
@@ -214,7 +312,7 @@ header{
     gap: 30px;
 }
 
-.perfumes{
+.perfumes {
     width: 90%;
     height: 90%;
     display: flex;
@@ -224,7 +322,7 @@ header{
     gap: 10px;
 }
 
-.card{
+.card {
     width: 300px;
     height: 450px;
     border: 1px solid var(--colorVioleta);
@@ -237,30 +335,30 @@ header{
     box-shadow: 0px 0px 8px #151820;
 }
 
-.card:hover{
+.card:hover {
     border: 3px solid var(--colorVioleta);
 }
 
-.imagen__perfume{
+.imagen__perfume {
     width: 100%;
     height: 280px;
 }
 
-.marca__perfume{
+.marca__perfume {
     font-size: 0.8rem;
 }
 
-.flanker__perfume{
+.flanker__perfume {
     font-size: 1rem;
     font-weight: 300;
 }
 
-.precio__perfume{
+.precio__perfume {
     font-size: 1rem;
     font-weight: 700;
 }
 
-.boton__perfume{
+.boton__perfume {
     border: 1px solid var(--colorVioleta);
     border-radius: 20px;
     background-color: var(--colorBlanco);
@@ -268,14 +366,14 @@ header{
     padding: 10px 10px;
 }
 
-.boton__perfume:hover{
+.boton__perfume:hover {
     border: 1px solid var(--colorVioleta);
     border-radius: 20px;
     background-color: var(--colorVioleta);
     color: var(--colorBlanco);
 }
 
-.container__loading{
+.container__loading {
     visibility: hidden;
     width: 10%;
     height: 30px;
@@ -285,7 +383,7 @@ header{
     background-color: var(--colorVioleta);
 }
 
-footer{
+footer {
     padding: 25px 50px;
     width: 100%;
     height: 80px;
@@ -293,7 +391,7 @@ footer{
     color: var(--colorBlanco);
 }
 
-footer ul{
+footer ul {
     list-style: none;
     display: flex;
     justify-content: center;
@@ -302,16 +400,16 @@ footer ul{
     gap: 20px;
 }
 
-footer li{
+footer li {
     transition: all 2s;
 }
 
-footer li:hover{
+footer li:hover {
     transform: scale(1.1);
 }
 
 /***********SINGIN***********************/
-.section__singup{
+.section__singup {
     margin-top: 80px;
     background-color: var(--colorVioleta);
     height: calc(100vh - 80px);
@@ -320,7 +418,7 @@ footer li:hover{
     align-items: center;
 }
 
-.contenedor__singup{
+.contenedor__singup {
     width: 20%;
     height: 60%;
     display: flex;
@@ -330,17 +428,17 @@ footer li:hover{
     flex-direction: column;
 }
 
-.contenedor__singup h2{
+.contenedor__singup h2 {
     color: var(--colorBlanco);
 }
 
-.hr__my{
+.hr__my {
     width: 100%;
     height: 3.5px;
     background-color: var(--colorBlanco);
 }
 
-.boton__google{
+.boton__google {
     width: 100%;
     height: 50px;
     background-color: var(--colorAmarillo);
@@ -354,11 +452,11 @@ footer li:hover{
     text-align: center;
 }
 
-.boton__google:hover{
+.boton__google:hover {
     background-color: #fdcc30;
 }
 
-.boton__instagram{
+.boton__instagram {
     width: 100%;
     height: 50px;
     background-color: var(--colorIg);
@@ -372,11 +470,11 @@ footer li:hover{
     text-align: center;
 }
 
-.boton__instagram:hover{
+.boton__instagram:hover {
     background-color: #c54390;
 }
 
-.boton__facebook{
+.boton__facebook {
     width: 100%;
     height: 50px;
     background-color: var(--colorCeleste);
@@ -390,11 +488,11 @@ footer li:hover{
     text-align: center;
 }
 
-.boton__facebook:hover{
+.boton__facebook:hover {
     background-color: #2080f8;
 }
 
-.boton__email{
+.boton__email {
     width: 100%;
     height: 50px;
     background-color: var(--colorNegro);
@@ -408,12 +506,13 @@ footer li:hover{
     text-align: center;
 }
 
-.boton__email:hover{
+.boton__email:hover {
     background-color: #151820;
 }
+
 /***********FIN*LOGIN*******************/
 /**************SINGUP*******************/
-.input__singup{
+.input__singup {
     width: 100%;
     height: 100px;
     padding: 10px;
@@ -425,7 +524,7 @@ footer li:hover{
     font-weight: 600;
 }
 
-.contenedor__input{
+.contenedor__input {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -433,13 +532,13 @@ footer li:hover{
     gap: 8px;
 }
 
-.label__singup{
+.label__singup {
     font-family: var(--font-family);
     font-size: 0.8rem;
     color: var(--colorBlanco);
 }
 
-.boton__registrarse{
+.boton__registrarse {
     width: 100%;
     height: 50px;
     background-color: var(--colorVerde);
@@ -452,11 +551,11 @@ footer li:hover{
     text-align: center;
 }
 
-.boton__registrarse:hover{
+.boton__registrarse:hover {
     background-color: #40b565;
 }
 
-.boton__cancelar{
+.boton__cancelar {
     width: 100%;
     height: 50px;
     background-color: var(--colorRojo);
@@ -469,7 +568,8 @@ footer li:hover{
     text-align: center;
 }
 
-.boton__cancelar:hover{
+.boton__cancelar:hover {
     background-color: #f11035;
 }
+
 /***********FIN*SINGUP******************/

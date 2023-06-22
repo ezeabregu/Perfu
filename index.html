@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <title>PERFU - Tu perfume espera</title>
     <script src="https://kit.fontawesome.com/f8973ca62d.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header>
         <div class="contenedor__imagen">
@@ -20,23 +22,48 @@
                 <li><a href="./singup.html">Registrarse</a></li>
                 <li><i class="fa-solid fa-cart-shopping"></i></li>
             </ul>
+            <!-- Carrito de compras -->
+            <div class="section__carrito">
+                <div class="contenedor__carrito" id="carrito">
+                    <div class="titulo__carrito">
+                        <label>MI COMPRA</label>
+                    </div>
+                    <hr class="myhr">
+                    <div class="lista__carrito">
+                        <label class="mostrar">Aún no hay nada por aquí!</label>
+                        <div class="producto__carrito">
+                            <img src="./images/pacoRabanne/fame-paco-rabanne.png" alt="PACO">
+                            <div class="info__carrito">
+                                <span class="marca__perfume"><strong>Paco Rabanne</strong></span>
+                                <span class="flanker__perfume">FAME EDP REFILLABLE</span>
+                                <div class="botonesDelCarrito">
+                                    <div class="botones__producto__carrito">
+                                        <button>-</button>
+                                        <label>1</label>
+                                        <button>+</button>
+                                    </div>
+                                    <button>Quitar</button>
+                                </div>
+                                <span class="precio__perfume">$59.600</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resto__carrito">
+                        <div class="total__carrito">
+                            <label>Total:</label>
+                            <label id="total">$0</label>
+                        </div>
+                        <div class="botones__carrito">
+                            <button id="comprar" class="boton__perfume">COMPRAR</button>
+                            <button id="vaciar" class="boton__perfume">VACIAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fin Carrito de compras -->
         </nav>
     </header>
-    <section class="section__carrito">
-        <div class="contenedor__carrito">
-            <label>Carrito de compras</label>
-            <div class="lista__carrito">
-                
-            </div>
-            <div class="total__carrito">
-               <label>Total:</label> 
-            </div>
-            <div class="botones__carrito">
-                <button>COMPRAR</button>
-                <button>VACIAR</button>
-            </div>
-        </div>
-    </section>
+
     <section class="section__hero">
         <div class="text__hero">
             <h1>PERFU</h1>
@@ -47,13 +74,17 @@
     </section>
     <section class="section__info">
         <div class="info__perfume">
-          <p>
-            El <strong>perfume</strong>(proveniente del latín per, 'por' y fumare, 'a través del humo') hacía referencia, en tiempos muy antiguos, 
-            a la sustancia aromática que desprendía un humo fragante al ser quemada. Los romanos no utilizaron la palabra perfume 
-            y según demuestra el filólogo Joan Corominas, esta aparece por primera vez en lengua catalana en la obra Lo Somni de 
-            Bernat Metge (1399) y a partir de 1528 en la literatura francesa. En la actualidad, la palabra «perfume» se refiere al 
-            líquido aromático que usa una persona, para desprender un olor agradable.
-          </p>
+            <p>
+                El <strong>perfume</strong>(proveniente del latín per, 'por' y fumare, 'a través del humo') hacía
+                referencia, en tiempos muy antiguos,
+                a la sustancia aromática que desprendía un humo fragante al ser quemada. Los romanos no utilizaron la
+                palabra perfume
+                y según demuestra el filólogo Joan Corominas, esta aparece por primera vez en lengua catalana en la obra
+                Lo Somni de
+                Bernat Metge (1399) y a partir de 1528 en la literatura francesa. En la actualidad, la palabra «perfume»
+                se refiere al
+                líquido aromático que usa una persona, para desprender un olor agradable.
+            </p>
         </div>
         <div class="info__curiosidades">
             <div class="info__tarjeta">
@@ -62,7 +93,7 @@
             </div>
         </div>
     </section>
-    <section  class="section__marcas">
+    <section class="section__marcas">
         <img src="./images/ch.jpg" alt="Carolina Herrera" data-perfume="carolinaHerrera" class="marca__categoria">
         <img src="./images/d.jpg" alt="Dior" data-perfume="dior" class="marca__categoria">
         <img src="./images/g.jpg" alt="Givenchy" data-perfume="givenchy" class="marca__categoria">
@@ -95,4 +126,5 @@
     <script src="./info.js"></script>
     <script src="./app.js"></script>
 </body>
+
 </html>
