@@ -37,6 +37,20 @@ const perfumes = document.querySelector(".perfumes");
 const loading = document.querySelector(".container__loading");
 const carrito = document.getElementById("carrito");
 const iconoCarrito = document.querySelector(".fa-cart-shopping");
+const listaCarrito = document.querySelector(".lista__carrito");
+const modal = document.querySelector(".modal");
+const vaciar = document.getElementById("vaciar");
+const comprar = document.getElementById("comprar");
+const totalCompra = document.getElementById("total");
+const menos = document.getElementById("menos");
+const mas = document.getElementById("mas");
+const iconoBasura = document.querySelector(".fa-trash-can");
+
+let carroArray = JSON.parse(localStorage.getItem("carro")) || [];
+
+const saveLocalStorage = (cartlist) => {
+  localStorage.setItem("carro", JSON.stringify(cartlist));
+};
 
 const mostrarCuriosidades = () => {
   let i = 0;
@@ -58,7 +72,7 @@ const mostrarCategoria = (categoria) => {
             <span class="marca__perfume"><strong>${marca}</strong></span>
             <span class="flanker__perfume">${flanker}</span>
             <span class="precio__perfume">$${precio}</span>
-            <button class="boton__perfume">AGREGAR AL CARRITO</button>
+            <button class="boton__perfume btn__agregar" data-id='${id}' data-imagen='${imagen}' data-marca='${marca}' data-flanker='${flanker}' data-precio='${precio}'>AGREGAR AL CARRITO</button>
           </div>`;
 };
 
@@ -116,10 +130,177 @@ const mostrarCarrito = (e) => {
   }
 };
 
+const cerrarCarritoScroll = () => {
+  if (!carrito.classList.contains('activar__carrito')) {
+    return;
+  }
+  carrito.classList.remove('activar__carrito');
+};
+
+/***carrito de compras***/
+const mostrarCarritoElemento = (producto) => {
+  const { id, marca, flanker, precio, imagen, cantidad } = producto;
+  return `<div class="producto__carrito">
+            <img src="${imagen}" alt="${flanker}">
+            <div class="info__carrito">
+              <span class="marca__perfume"><strong>${marca}</strong></span>
+              <span class="flanker__perfume">${flanker}</span>
+              <div class="botonesDelCarrito">
+                <div class="botones__producto__carrito">
+                  <button id="menos" data-nombre='${flanker}'>-</button>
+                  <label id="cantidad">${cantidad}</label>
+                  <button id="mas" data-nombre='${flanker}'>+</button>
+                </div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <span class="precio__perfume">$${precio}</span>
+            </div>
+          </div>`;
+};
+
+const mostrarCarritoLista = () => {
+  if (!carroArray.length) {
+    listaCarrito.innerHTML = `<h3 class="mostrar">Aún no hay productos</h3>`;
+    return;
+  }
+  listaCarrito.innerHTML = carroArray.map(mostrarCarritoElemento).join("");
+};
+
+const crearDatosDeProducto = (id, marca, flanker, precio, imagen) => {
+  return { id, marca, flanker, precio, imagen };
+};
+
+const crearProductoEnCarrito = (producto) => {
+  carroArray = [...carroArray, { ...producto, cantidad: 1 }];
+};
+
+const existeProductoEnCarrito = (producto) => {
+  return carroArray.find((item) => item.flanker === producto.flanker);
+};
+
+const sumarUnidadAlProducto = (producto) => {
+  carroArray = carroArray.map((carritoProducto) => {
+    return carritoProducto.flanker === producto.flanker ?
+      { ...carritoProducto, cantidad: carritoProducto.cantidad + 1 }
+      : carritoProducto;
+  });
+};
+
+const calcularTotal = () => {
+  return carroArray.reduce((acc, cur) => acc + Number(cur.precio) * cur.cantidad, 0);
+};
+
+const mostrarTotal = () => {
+  totalCompra.innerHTML = `$${calcularTotal()}`;
+};
+
+const mostrarModal = (msg) => {
+  modal.classList.add("modal-activo");
+  modal.textContent = msg;
+  setTimeout(() => {
+    modal.classList.remove("modal-activo");
+  }, 1500);
+};
+
+const agregarProduto = (e) => {
+  if (!e.target.classList.contains('btn__agregar')) return;
+  const { id, marca, flanker, precio, imagen } = e.target.dataset;
+  const producto = crearDatosDeProducto(id, marca, flanker, precio, imagen);
+  if (existeProductoEnCarrito(producto)) {
+    sumarUnidadAlProducto(producto);
+    mostrarModal("Se agrego una unidad del producto al carrito!");
+  } else {
+    crearProductoEnCarrito(producto);
+    mostrarModal("El producto se ha agregado al carrito!");
+  }
+  estadoCarrito();
+};
+
+const borrarProductoDelCarrito = (existeProducto) => {
+  carroArray = carroArray.filter((producto) => producto.flanker !== existeProducto.flanker);
+  estadoCarrito();
+};
+
+const restarUnidadProducto = (existeProducto) => {
+  carroArray = carroArray.map((producto) => {
+    return producto.flanker === existeProducto.flanker ?
+      { ...producto, cantidad: Number(producto.cantidad) - 1 }
+      : producto;
+  });
+};
+
+const botonDecrementarProducto = (flanker) => {
+  const existeProductoEnCarrito = carroArray.find((item) => item.flanker === flanker);
+
+  if (existeProductoEnCarrito.cantidad === 1) {
+    if (window.confirm("Desea eliminar el producto del carrito")) {
+      // borrar producto
+      borrarProductoDelCarrito(existeProductoEnCarrito);
+    }
+    return;
+  }
+  // Restar uno al producto existente
+  restarUnidadProducto(existeProductoEnCarrito);
+};
+
+const botonIncrementarProducto = (flanker) => {
+  const existeProductoEnCarrito = carroArray.find((item) => item.flanker === flanker);
+  sumarUnidadAlProducto(existeProductoEnCarrito);
+};
+
+const cantidadEnCarrito = (e) => {
+  if (e.target.classList.contains("menos")) {
+    botonDecrementarProducto(e.target.dataset.flanker);
+  } else if (e.target.classList.contains("mas")) {
+    botonIncrementarProducto(e.target.dataset.flanker);
+  }
+  estadoCarrito();
+};
+
+const vaciarCarritoDeCompras = () => {
+  var opcion = window.confirm("¿Está seguro que desea vaciar el carrito?");
+  if (opcion === true) {
+    carroArray = [];
+    estadoCarrito();
+    alert('Carrito vaciado.');
+  } else {
+    alert('Cancelado exitosamente.');
+  }
+  estadoCarrito();
+};
+
+const finalizarCompra = () => {
+  if (!carroArray.length) return;
+  var respuesta = window.confirm('¿Desea finaliza la compra y abonar?');
+  if (respuesta === true) {
+    alert('Gracias por su compra!');
+    carroArray = [];
+    estadoCarrito();
+  } else {
+    alert('Continue comprando...')
+  }
+  estadoCarrito();
+}
+
+const estadoCarrito = () => {
+  saveLocalStorage(carroArray);
+  mostrarCarritoLista(carroArray);
+  mostrarTotal(carroArray);
+};
+
+/***fin carrito de compras***/
+
 const init = () => {
+  document.addEventListener('DOMContentLoaded', mostrarCarritoLista);
   document.addEventListener('DOMContentLoaded', mostrarCuriosidades);
   seccionMarcas.addEventListener('click', mostrarCategorias);
   iconoCarrito.addEventListener('click', mostrarCarrito);
+  window.addEventListener('scroll', cerrarCarritoScroll);
+  perfumes.addEventListener('click', agregarProduto);
+  vaciar.addEventListener('click', vaciarCarritoDeCompras);
+  comprar.addEventListener('click', finalizarCompra);
+  listaCarrito.addEventListener('click', cantidadEnCarrito);
+  iconoBasura.addEventListener('click', borrarProductoDelCarrito(producto));
 };
 
 init();

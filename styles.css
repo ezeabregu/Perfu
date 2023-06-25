@@ -159,6 +159,7 @@ header {
 }
 
 .producto__carrito {
+    width: 100%;
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -210,6 +211,25 @@ header {
 
 .myhr {
     color: var(--colorVioleta);
+}
+
+.modal {
+    padding: 15px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--colorBlanco);
+    background-color: green;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transition: all 0.5s ease-out;
+    transform: translateY(200%);
+}
+
+.modal-activo {
+    transform: translateY(0);
+    transition: all 0.5s ease-in;
 }
 
 .section__hero {
