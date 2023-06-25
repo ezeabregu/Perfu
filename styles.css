@@ -190,7 +190,22 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    padding: 5px 5px;
+}
+
+#menos,
+#mas {
+    border: 0;
+    background-color: var(--colorBlanco);
+    cursor: pointer;
+    color: var(--colorVioleta);
+}
+
+.fa-trash-can {
+    margin-top: 10px;
+    color: var(--colorRojo);
+    cursor: pointer;
 }
 
 .myhr {
