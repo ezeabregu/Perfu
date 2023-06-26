@@ -42,9 +42,9 @@ const modal = document.querySelector(".modal");
 const vaciar = document.getElementById("vaciar");
 const comprar = document.getElementById("comprar");
 const totalCompra = document.getElementById("total");
-const menos = document.getElementById("menos");
-const mas = document.getElementById("mas");
-const iconoBasura = document.querySelector(".fa-trash-can");
+const menos = document.querySelector(".menos");
+const mas = document.querySelector(".mas");
+const iconoBasura = document.querySelector(".borrar");
 
 let carroArray = JSON.parse(localStorage.getItem("carro")) || [];
 
@@ -147,11 +147,13 @@ const mostrarCarritoElemento = (producto) => {
               <span class="flanker__perfume">${flanker}</span>
               <div class="botonesDelCarrito">
                 <div class="botones__producto__carrito">
-                  <button id="menos" data-nombre='${flanker}'>-</button>
+                  <button class="menos" data-flanker='${flanker}'>-</button>
                   <label id="cantidad">${cantidad}</label>
-                  <button id="mas" data-nombre='${flanker}'>+</button>
+                  <button class="mas" data-flanker='${flanker}'>+</button>
                 </div>
-                <i class="fa-regular fa-trash-can"></i>
+                <button class="borrar" data-flanker='${flanker}'>
+                  <i class="fa-regular fa-trash-can borrar" data-flanker='${flanker}'></i>
+                </button>  
               </div>
               <span class="precio__perfume">$${precio}</span>
             </div>
@@ -248,11 +250,19 @@ const botonIncrementarProducto = (flanker) => {
   sumarUnidadAlProducto(existeProductoEnCarrito);
 };
 
+const botonBorrarProducto = (flanker) => {
+  const existeProductoEnCarrito = carroArray.find((item) => item.flanker === flanker);
+  borrarProductoDelCarrito(existeProductoEnCarrito);
+};
+
 const cantidadEnCarrito = (e) => {
   if (e.target.classList.contains("menos")) {
     botonDecrementarProducto(e.target.dataset.flanker);
   } else if (e.target.classList.contains("mas")) {
     botonIncrementarProducto(e.target.dataset.flanker);
+  }
+  else if (e.target.classList.contains("borrar")) {
+    botonBorrarProducto(e.target.dataset.flanker);
   }
   estadoCarrito();
 };
@@ -291,7 +301,7 @@ const estadoCarrito = () => {
 /***fin carrito de compras***/
 
 const init = () => {
-  document.addEventListener('DOMContentLoaded', mostrarCarritoLista);
+  document.addEventListener('DOMContentLoaded', estadoCarrito);
   document.addEventListener('DOMContentLoaded', mostrarCuriosidades);
   seccionMarcas.addEventListener('click', mostrarCategorias);
   iconoCarrito.addEventListener('click', mostrarCarrito);
@@ -300,7 +310,7 @@ const init = () => {
   vaciar.addEventListener('click', vaciarCarritoDeCompras);
   comprar.addEventListener('click', finalizarCompra);
   listaCarrito.addEventListener('click', cantidadEnCarrito);
-  iconoBasura.addEventListener('click', borrarProductoDelCarrito(producto));
+  iconoBasura.addEventListener('click', cantidadEnCarrito);
 };
 
 init();
