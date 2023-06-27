@@ -483,6 +483,7 @@ footer li:hover {
 
 .show-overlay {
     display: block;
+    margin-top: 80px;
 }
 
 /***********SINGIN***********************/
