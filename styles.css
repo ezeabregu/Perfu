@@ -22,6 +22,11 @@
     --font-text: 'Lato', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
 a {
     text-decoration: none;
     color: var(--colorBlanco);
@@ -460,6 +465,24 @@ footer li {
 
 footer li:hover {
     transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: none;
+}
+
+.show-overlay {
+    display: block;
 }
 
 /***********SINGIN***********************/

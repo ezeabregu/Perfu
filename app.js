@@ -45,6 +45,7 @@ const totalCompra = document.getElementById("total");
 const menos = document.querySelector(".menos");
 const mas = document.querySelector(".mas");
 const iconoBasura = document.querySelector(".borrar");
+const overlay = document.querySelector(".overlay");
 
 let carroArray = JSON.parse(localStorage.getItem("carro")) || [];
 
@@ -125,8 +126,10 @@ const loadingPerfumes = (categoria) => {
 const mostrarCarrito = (e) => {
   if (carrito.classList.contains('activar__carrito')) {
     carrito.classList.remove('activar__carrito');
+    overlay.classList.toggle("show-overlay");
   } else {
     carrito.classList.add('activar__carrito');
+    overlay.classList.toggle('show-overlay');
   }
 };
 
@@ -135,6 +138,15 @@ const cerrarCarritoScroll = () => {
     return;
   }
   carrito.classList.remove('activar__carrito');
+  overlay.classList.toggle('show-overlay');
+};
+
+const cerrarOverlayClick = () => {
+  if (!carrito.classList.contains('activar__carrito')) {
+    return;
+  }
+  carrito.classList.remove('activar__carrito');
+  overlay.classList.remove('show-overlay');
 };
 
 /***carrito de compras***/
@@ -268,6 +280,7 @@ const cantidadEnCarrito = (e) => {
 };
 
 const vaciarCarritoDeCompras = () => {
+  if (!carroArray.length) return;
   var opcion = window.confirm("¿Está seguro que desea vaciar el carrito?");
   if (opcion === true) {
     carroArray = [];
@@ -281,7 +294,7 @@ const vaciarCarritoDeCompras = () => {
 
 const finalizarCompra = () => {
   if (!carroArray.length) return;
-  var respuesta = window.confirm('¿Desea finaliza la compra y abonar?');
+  var respuesta = window.confirm('¿Desea finalizar la compra y abonar?');
   if (respuesta === true) {
     alert('Gracias por su compra!');
     carroArray = [];
@@ -305,6 +318,7 @@ const init = () => {
   document.addEventListener('DOMContentLoaded', mostrarCuriosidades);
   seccionMarcas.addEventListener('click', mostrarCategorias);
   iconoCarrito.addEventListener('click', mostrarCarrito);
+  overlay.addEventListener('click', cerrarOverlayClick);
   window.addEventListener('scroll', cerrarCarritoScroll);
   perfumes.addEventListener('click', agregarProduto);
   vaciar.addEventListener('click', vaciarCarritoDeCompras);
