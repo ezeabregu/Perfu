@@ -257,8 +257,8 @@ header {
 }
 
 .section__hero {
-    max-width: 1200px;
-    margin: 0;
+    /* max-width: 1800px;
+    margin: auto; */
     margin-top: 80px;
     background-color: var(--colorVioleta);
     width: 100%;
@@ -297,8 +297,8 @@ header {
 }
 
 .section__info {
-    max-width: 1200px;
-    margin: 0;
+    max-width: 1800px;
+    margin: auto;
     padding: 50px 50px;
     width: 100%;
     height: 400px;
@@ -340,8 +340,8 @@ header {
 }
 
 .section__marcas {
-    max-width: 1200px;
-    margin: 0;
+    max-width: 1800px;
+    margin: auto;
     padding: 50px 50px;
     width: 100%;
     height: auto;
@@ -367,8 +367,8 @@ header {
 }
 
 .section__perfumes {
-    max-width: 1200px;
-    margin: 0;
+    max-width: 1800px;
+    margin: auto;
     padding: 50px 50px;
     width: 100%;
     height: auto;
