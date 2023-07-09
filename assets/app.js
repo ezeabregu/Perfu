@@ -47,6 +47,12 @@ const mas = document.querySelector(".mas");
 const iconoBasura = document.querySelector(".borrar");
 const overlay = document.querySelector(".overlay");
 
+const menu = document.querySelector(".menu__burger");
+const menuItems = document.querySelectorAll(".menu__item");
+const hamburger = document.querySelector(".hamburger");
+const closeIcon = document.querySelector(".cerrar__icono");
+const menuIcon = document.querySelector(".menu__icono");
+
 let carroArray = JSON.parse(localStorage.getItem("carro")) || [];
 
 const saveLocalStorage = (cartlist) => {
@@ -313,6 +319,18 @@ const estadoCarrito = () => {
 
 /***fin carrito de compras***/
 
+function toggleMenu() {
+  if (menu.classList.contains("showMenu")) {
+    menu.classList.remove("showMenu");
+    closeIcon.style.display = "none";
+    menuIcon.style.display = "block";
+  } else {
+    menu.classList.add("showMenu");
+    closeIcon.style.display = "block";
+    menuIcon.style.display = "none";
+  }
+}
+
 const init = () => {
   document.addEventListener('DOMContentLoaded', estadoCarrito);
   document.addEventListener('DOMContentLoaded', mostrarCuriosidades);
@@ -325,6 +343,7 @@ const init = () => {
   comprar.addEventListener('click', finalizarCompra);
   listaCarrito.addEventListener('click', cantidadEnCarrito);
   iconoBasura.addEventListener('click', cantidadEnCarrito);
+  hamburger.addEventListener("click", toggleMenu);
 };
 
 init();
