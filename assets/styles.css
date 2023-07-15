@@ -11,6 +11,7 @@
 :root {
     --colorBlanco: #ffffff;
     --colorVioleta: #7552cc;
+    --colorVioletaClaro: #7552ee;
     --colorNegro: #131415;
     --colorCeleste: #1877f2;
     --colorIg: #c13584;
@@ -68,16 +69,20 @@ header {
     width: 100%;
 }
 
-.contenedor__nav__burger {
+.menu__hamburguesa {
     display: none;
+    cursor: pointer;
 }
 
-.contenedor__nav__burger ul {
-    list-style: none;
-}
-
-.menuBurgerLista {
-    display: none;
+.barra {
+    display: block;
+    width: 35px;
+    height: 5px;
+    margin: 7px auto;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--colorBlanco);
 }
 
 .contenedor__nav {
@@ -773,8 +778,43 @@ footer li:hover {
         justify-content: space-between;
     }
 
-    .contenedor__nav {
+    .section__carrito {
         display: none;
+    }
+
+    .contenedor__nav {
+        position: fixed;
+        padding: 20px 0px;
+        left: -100%;
+        top: 80px;
+        gap: 20px;
+        border-radius: 20px;
+        flex-direction: column;
+        background-color: var(--colorVioletaClaro);
+        width: 100%;
+        height: 30vh;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .contenedor__nav.activarMenu {
+        left: 0;
+    }
+
+    .menu__hamburguesa {
+        display: block;
+    }
+
+    .menu__hamburguesa.activarMenu .barra:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu__hamburguesa.activarMenu .barra:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu__hamburguesa.activarMenu .barra:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 
     .section__hero {

@@ -46,12 +46,8 @@ const menos = document.querySelector(".menos");
 const mas = document.querySelector(".mas");
 const iconoBasura = document.querySelector(".borrar");
 const overlay = document.querySelector(".overlay");
-
-const menu = document.querySelector(".menu__burger");
-const menuItems = document.querySelectorAll(".menu__item");
-const hamburger = document.querySelector(".hamburger");
-const closeIcon = document.querySelector(".cerrar__icono");
-const menuIcon = document.querySelector(".menu__icono");
+const iconoBurger = document.querySelector(".menu__hamburguesa");
+const menu = document.querySelector(".contenedor__nav");
 
 let carroArray = JSON.parse(localStorage.getItem("carro")) || [];
 
@@ -319,17 +315,14 @@ const estadoCarrito = () => {
 
 /***fin carrito de compras***/
 
-function toggleMenu() {
-  if (menu.classList.contains("showMenu")) {
-    menu.classList.remove("showMenu");
-    closeIcon.style.display = "none";
-    menuIcon.style.display = "block";
+const mostrarMenuBurger = (e) => {
+  console.log("Hola vieja");
+  if (iconoBurger.classList.contains("activarMenu")) {
+    iconoBurger.classList.remove("activarMenu");
   } else {
-    menu.classList.add("showMenu");
-    closeIcon.style.display = "block";
-    menuIcon.style.display = "none";
+    iconoBurger.classList.add("activarMenu");
   }
-}
+};
 
 const init = () => {
   document.addEventListener('DOMContentLoaded', estadoCarrito);
@@ -343,7 +336,7 @@ const init = () => {
   comprar.addEventListener('click', finalizarCompra);
   listaCarrito.addEventListener('click', cantidadEnCarrito);
   iconoBasura.addEventListener('click', cantidadEnCarrito);
-  hamburger.addEventListener("click", toggleMenu);
+  iconoBurger.addEventListener('click', mostrarMenuBurger);
 };
 
 init();
