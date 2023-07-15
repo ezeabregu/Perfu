@@ -785,15 +785,17 @@ footer li:hover {
     .contenedor__nav {
         position: fixed;
         padding: 20px 0px;
-        left: -100%;
-        top: 80px;
+        /* left: -100%; */
+        transform: translateY(-200%);
         gap: 20px;
+        border-bottom: 2px solid var(--colorBlanco);
+        border-radius: 0px 0px 30px 30px;
         flex-direction: column;
         background-color: var(--colorVioleta);
         width: 100%;
         height: 30vh;
         text-align: center;
-        transition: 0.3s;
+        transition: 0.5s;
     }
 
     .contenedor__nav ul {
@@ -802,6 +804,8 @@ footer li:hover {
 
     .contenedor__nav.activarMenu {
         left: 0;
+        top: 80px;
+        transform: translateY(0px);
     }
 
     .menu__hamburguesa {
