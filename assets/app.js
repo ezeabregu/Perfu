@@ -151,6 +151,11 @@ const cerrarOverlayClick = () => {
   overlay.classList.remove('show-overlay');
 };
 
+const mostrarMenuBurger = () => {
+  iconoBurger.classList.toggle("activarMenu");
+  menu.classList.toggle("activarMenu");
+};
+
 /***carrito de compras***/
 const mostrarCarritoElemento = (producto) => {
   const { id, marca, flanker, precio, imagen, cantidad } = producto;
@@ -315,18 +320,10 @@ const estadoCarrito = () => {
 
 /***fin carrito de compras***/
 
-const mostrarMenuBurger = (e) => {
-  console.log("Hola vieja");
-  if (iconoBurger.classList.contains("activarMenu")) {
-    iconoBurger.classList.remove("activarMenu");
-  } else {
-    iconoBurger.classList.add("activarMenu");
-  }
-};
-
 const init = () => {
   document.addEventListener('DOMContentLoaded', estadoCarrito);
   document.addEventListener('DOMContentLoaded', mostrarCuriosidades);
+  iconoBurger.addEventListener('click', mostrarMenuBurger);
   seccionMarcas.addEventListener('click', mostrarCategorias);
   iconoCarrito.addEventListener('click', mostrarCarrito);
   overlay.addEventListener('click', cerrarOverlayClick);
@@ -336,7 +333,6 @@ const init = () => {
   comprar.addEventListener('click', finalizarCompra);
   listaCarrito.addEventListener('click', cantidadEnCarrito);
   iconoBasura.addEventListener('click', cantidadEnCarrito);
-  iconoBurger.addEventListener('click', mostrarMenuBurger);
 };
 
 init();
