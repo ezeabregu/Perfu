@@ -48,6 +48,7 @@ const iconoBasura = document.querySelector(".borrar");
 const overlay = document.querySelector(".overlay");
 const iconoBurger = document.querySelector(".menu__hamburguesa");
 const menu = document.querySelector(".contenedor__nav");
+const linksMenuBurger = document.querySelectorAll(".link__menu");
 
 let carroArray = JSON.parse(localStorage.getItem("carro")) || [];
 
@@ -154,6 +155,11 @@ const cerrarOverlayClick = () => {
 const mostrarMenuBurger = () => {
   iconoBurger.classList.toggle("activarMenu");
   menu.classList.toggle("activarMenu");
+  linksMenuBurger.forEach(
+    n => n.addEventListener('click', () => {
+      iconoBurger.classList.remove("activarMenu");
+      menu.classList.remove("activarMenu");
+    }))
 };
 
 /***carrito de compras***/

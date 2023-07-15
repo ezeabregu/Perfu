@@ -778,7 +778,26 @@ footer li:hover {
         justify-content: space-between;
     }
 
-    .section__carrito {
+    .contenedor__carrito {
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px);
+        padding: 10px 10px;
+        transform: translateY(-200%);
+        transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+    }
+
+    .contenedor__carrito::-webkit-scrollbar {
+        display: none;
+    }
+
+    .activar__carrito {
+        transform: translateX(-30px) translateY(530px);
+        transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+    }
+
+    .overlay {
         display: none;
     }
 
