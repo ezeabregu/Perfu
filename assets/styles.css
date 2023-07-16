@@ -764,6 +764,15 @@ footer li:hover {
         flex-direction: row;
         gap: 50px;
     }
+
+    .contenedor__singup {
+        width: 80%;
+        height: calc(100vh - 150px);
+    }
+
+    .input__singup {
+        height: 50px;
+    }
 }
 
 /***********FIN MEDIAQUERIESTABLET******************/
@@ -926,6 +935,10 @@ footer li:hover {
     .contenedor__singup {
         width: 80%;
         height: calc(100vh - 150px);
+    }
+
+    .input__singup {
+        height: 50px;
     }
 }
 
