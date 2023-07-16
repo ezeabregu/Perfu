@@ -922,6 +922,11 @@ footer li:hover {
         height: auto;
         flex-direction: column;
     }
+
+    .contenedor__singup {
+        width: 80%;
+        height: calc(100vh - 150px);
+    }
 }
 
 /***********FIN MEDIAQUERIESPHONE******************/

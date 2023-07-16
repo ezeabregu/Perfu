@@ -133,6 +133,7 @@ const mostrarCarrito = (e) => {
   } else {
     carrito.classList.add('activar__carrito');
     overlay.classList.toggle('show-overlay');
+    menu.classList.remove('activarMenu');
   }
 };
 
