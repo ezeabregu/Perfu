@@ -798,8 +798,8 @@ footer li:hover {
     }
 
     .contenedor__carrito {
-        transform: translate(-200%);
-        transition: all 0.5s ease-in-out;
+        transform: translateY(-200%);
+        transition: 0.5s;
     }
 
     .contenedor__carrito::-webkit-scrollbar {
@@ -807,13 +807,13 @@ footer li:hover {
     }
 
     .activar__carrito {
-        left: -10px;
+        left: -30px;
         top: 460px;
-        z-index: 99;
+        z-index: 2;
         width: auto;
         height: 100vh;
-        transform: translateX(-5.6%);
-        transition: all 0.5s ease-in-out;
+        transform: translateY(0px);
+        transition: 0.5s;
     }
 
     .overlay {
