@@ -767,11 +767,21 @@ footer li:hover {
 
     .contenedor__singup {
         width: 80%;
-        height: calc(100vh - 150px);
+        height: calc(100vh - 80px);
     }
 
     .input__singup {
         height: 50px;
+    }
+
+    .label__singup {
+        font-size: 0.5rem;
+    }
+
+    .boton__registrarse,
+    .hr__my,
+    .boton__instagram {
+        margin: 8px 0px;
     }
 }
 
