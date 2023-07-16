@@ -945,6 +945,10 @@ footer li:hover {
     .label__singup {
         font-size: 0.5rem;
     }
+
+    .boton__registrarse {
+        margin: 5px 0px;
+    }
 }
 
 /***********FIN MEDIAQUERIESPHONE******************/
