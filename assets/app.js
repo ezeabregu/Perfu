@@ -41,6 +41,7 @@ const listaCarrito = document.querySelector(".lista__carrito");
 const modal = document.querySelector(".modal");
 const vaciar = document.getElementById("vaciar");
 const comprar = document.getElementById("comprar");
+const salir = document.getElementById("salir");
 const totalCompra = document.getElementById("total");
 const menos = document.querySelector(".menos");
 const mas = document.querySelector(".mas");
@@ -338,6 +339,7 @@ const init = () => {
   perfumes.addEventListener('click', agregarProduto);
   vaciar.addEventListener('click', vaciarCarritoDeCompras);
   comprar.addEventListener('click', finalizarCompra);
+  salir.addEventListener('click', mostrarCarrito)
   listaCarrito.addEventListener('click', cantidadEnCarrito);
   iconoBasura.addEventListener('click', cantidadEnCarrito);
 };
