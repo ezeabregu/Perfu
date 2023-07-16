@@ -946,7 +946,9 @@ footer li:hover {
         font-size: 0.5rem;
     }
 
-    .boton__registrarse {
+    .boton__registrarse,
+    .hr__my,
+    .boton__instagram {
         margin: 8px 0px;
     }
 }
