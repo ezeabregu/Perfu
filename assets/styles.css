@@ -934,12 +934,16 @@ footer li:hover {
 
     .contenedor__singup {
         width: 80%;
-        height: calc(100vh - 150px);
+        height: calc(100vh - 80px);
     }
 
     .input__singup {
         height: 50px;
         margin: 5px 0px;
+    }
+
+    .label__singup {
+        font-size: 0.5rem;
     }
 }
 
